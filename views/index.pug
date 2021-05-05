@@ -1,0 +1,193 @@
+extends layout
+
+block title
+  title The Stanford Question Answering Dataset
+
+block description
+  meta(name='description', content='Stanford Question Answering Dataset (SQuAD) is a new reading comprehension dataset, consisting of questions posed by crowdworkers on a set of Wikipedia articles, where the answer to every question is a segment of text, or span, from the corresponding reading passage. With 100,000+ question-answer pairs on 500+ articles, SQuAD is significantly larger than previous reading comprehension datasets.')
+
+block extralinks
+  link(rel='stylesheet', href='/stylesheets/index.css')
+  script(async defer src="https://buttons.github.io/buttons.js")
+
+block extrascripts
+
+mixin squad_2_model_display(group, is_test)
+  table.table.performanceTable
+    tr
+      if is_test
+        th Rank
+      th Model
+      th EM
+      th F1
+    - var human_em = 86.831
+    - var human_f1 = 89.452
+    - var largest_em = Math.max.apply(null, group.map(function (model) { return model.em; }))
+    - var largest_f1 = Math.max.apply(null, group.map(function (model) { return model.f1; }))
+      tr.human-row
+        td
+        td
+          | Human Performance
+          p.institution Stanford University
+          a(href="http://arxiv.org/abs/1606.05250") (Rajpurkar & Jia et al. '18)
+        td #{human_em}
+        td #{human_f1}
+    each model in group
+      tr
+        if is_test
+          td 
+            p #{model.rank}
+            span.date.label.label-default #{moment.unix(model.date).format('MMM DD, YYYY')}
+        td(style="word-break:break-word;")
+          | #{model.model_name}
+          p.institution #{model.institution}
+          if model.link
+            a.link(href=model.link) #{model.link}
+        td
+          if model.em == largest_em
+            b #{model.em.toPrecision(5)}
+          else
+            | #{model.em.toPrecision(5)}
+        td
+          if model.f1 == largest_f1
+            b #{model.f1.toPrecision(5)}
+          else
+            | #{model.f1.toPrecision(5)}
+
+mixin squad_1_model_display(group, is_test)
+  table.table.performanceTable
+    tr
+      if is_test
+        th Rank
+      th Model
+      th EM
+      th F1
+    - var human_em = 82.304
+    - var human_f1 = 91.221
+    - var is_human_performance_printed = false
+    - var largest_em = Math.max.apply(null, group.map(function (model) { return model.em; }))
+    - var largest_f1 = Math.max.apply(null, group.map(function (model) { return model.f1; }))
+    each model in group
+      if !is_human_performance_printed
+        - is_human_performance_printed = true
+        tr.human-row
+          td
+          td
+            | Human Performance
+            p.institution Stanford University
+            a(href="http://arxiv.org/abs/1606.05250") (Rajpurkar et al. '16)
+          td #{human_em}
+          td #{human_f1}
+      tr
+        if is_test
+          td 
+            p #{model.rank}
+            span.date.label.label-default #{moment.unix(model.date).format('MMM DD, YYYY')}
+        td(style="word-break:break-word;")
+          | #{model.model_name}
+          p.institution #{model.institution}
+          if model.link
+            a.link(href=model.link) #{model.link}
+        td
+          if model.em == largest_em
+            b #{model.em.toPrecision(5)}
+          else
+            | #{model.em.toPrecision(5)}
+        td
+          if model.f1 == largest_f1
+            b #{model.f1.toPrecision(5)}
+          else
+            | #{model.f1.toPrecision(5)}
+block content
+  .cover#contentCover
+    .container
+      .row
+        .col-md-5
+          .infoCard
+            .infoBody
+              .infoHeadline
+                h2 What is SQuAD?
+              p 
+                span
+                  b S
+                  |tanford 
+                  b Qu
+                  |estion 
+                  b A
+                  |nswering 
+                  b D
+                  |ataset (SQuAD) 
+                | is a reading comprehension dataset, consisting of questions posed by crowdworkers on a set of Wikipedia articles, where the answer to every question is a segment of text, or 
+                i span
+                | , from the corresponding reading passage, or the question might be unanswerable.
+              hr
+              p
+                b  SQuAD2.0
+                |  combines the 100,000 questions in SQuAD1.1 with over 50,000 unanswerable questions written adversarially by crowdworkers to look similar to answerable ones. To do well on SQuAD2.0, systems must not only answer questions when possible, but also determine when no answer is supported by the paragraph and abstain from answering.
+              a.btn.actionBtn(href="/explore/v2.0/dev/") Explore SQuAD2.0 and model predictions
+              a.btn.actionBtn(href="http://arxiv.org/abs/1806.03822") SQuAD2.0 paper (Rajpurkar & Jia et al. '18)
+              hr
+              p
+                b  SQuAD 1.1,
+                |  the previous version of the SQuAD dataset, contains 100,000+ question-answer pairs on 500+ articles.
+              a.btn.actionBtn(href="/explore/1.1/dev/") Explore SQuAD1.1 and model predictions
+              a.btn.actionBtn(href="http://arxiv.org/abs/1606.05250") SQuAD1.0 paper (Rajpurkar et al. '16)
+              .infoHeadline
+                h2 Getting Started
+              p
+                | We've built a few resources to help you get started with the dataset.
+              p 
+                | Download a copy of the dataset (distributed under the  
+                a(href="http://creativecommons.org/licenses/by-sa/4.0/legalcode") CC BY-SA 4.0
+                |  license):
+                ul.list-unstyled
+                  li
+                    a.btn.actionBtn.inverseBtn(href="/dataset/train-v2.0.json", download)
+                      | Training Set v2.0 (40 MB)
+                  li
+                    a.btn.actionBtn.inverseBtn(href="/dataset/dev-v2.0.json", download)
+                      | Dev Set v2.0 (4 MB)
+              p To evaluate your models, we have also made available the evaluation script we will use for official evaluation, along with a sample prediction file that the script will take as input. To run the evaluation, use 
+                code
+                  | python evaluate-v2.0.py &lt;path_to_dev-v2.0&gt; &lt;path_to_predictions&gt;
+                |.
+                ul.list-unstyled
+                  li
+                    a.btn.actionBtn.inverseBtn(href="https://worksheets.codalab.org/rest/bundles/0x6b567e1cf2e041ec80d7098f031c5c9e/contents/blob/", download)
+                      | Evaluation Script v2.0
+                  li
+                    a.btn.actionBtn.inverseBtn(href="https://worksheets.codalab.org/bundles/0x8731effab84f41b7b874a070e40f61e2/", download)
+                      | Sample Prediction File (on Dev v2.0)
+              p Once you have a built a model that works to your expectations on the dev set, you submit it to get official scores on the dev and a hidden test set. To preserve the integrity of test results, we do not release the test set to the public. Instead, we require you to submit your model so that we can run it on the test set for you. Here's a tutorial walking you through official evaluation of your model:
+              a.btn.actionBtn.inverseBtn(href="https://worksheets.codalab.org/worksheets/0x8212d84ca41c4150b555a075b19ccc05/")
+                | Submission Tutorial
+              p Because SQuAD is an ongoing effort, we expect the dataset to evolve.
+              p To keep up to date with major changes to the dataset, please subscribe:
+              include includes/mailchimp
+              .infoHeadline
+                h2 Have Questions?
+              p 
+                | Ask us questions at our   
+                a(href="https://groups.google.com/forum/#!forum/squad-stanford-qa") google group
+                |  or at 
+                a(href="mailto:pranavsr@stanford.edu") pranavsr@stanford.edu
+                |  and 
+                a(href="mailto:robinjia@stanford.edu") robinjia@stanford.edu
+                | .
+            .infoSubheadline
+              include includes/tweet
+              include includes/github
+        .col-md-7
+          .infoCard
+            .infoBody
+              .infoHeadline
+                h2 Leaderboard
+              p SQuAD2.0 tests the ability of a system to not only answer reading comprehension questions, but also abstain when presented with a question that cannot be answered based on the provided paragraph.
+              +squad_2_model_display(test2, true)
+          .infoCard
+            .infoBody
+              .infoHeadline
+                h2 SQuAD1.1 Leaderboard 
+              p 
+                |  Here are the ExactMatch (EM) and F1 scores evaluated on the test set of SQuAD v1.1.
+              +squad_1_model_display(test1, true)
