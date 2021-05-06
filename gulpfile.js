@@ -234,16 +234,16 @@ filepaths.forEach(function (filename) {
 
 gulp.task('process_comp_output', function (cb) {
   var jsonfile = require('jsonfile')
-  var entries1 = parseCompEntries('./out-v1.1.json')
-  jsonfile.writeFile('./results1.1.json', entries1, cb)
+  var entries1 = parseCompEntries('./out-v2.0.json')
+  jsonfile.writeFile('./results.json', entries1, cb)
 })
 
 gulp.task('generate_index', ['process_comp_output'], function () {
-  var test_1 = require('./results1.1.json')
+  var test = require('./results.json')
   var moment = require('moment')
   return gulp.src('views/index.pug')
       .pipe(data(function () {
-        return { 'test1': test_1,
+        return { 'test': test,
           'moment': moment}
       }))
     .pipe(pug())
