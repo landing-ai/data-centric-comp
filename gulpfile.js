@@ -13,7 +13,7 @@ var path = require('path')
 var fs = require('fs')
 var cheerio = require('cheerio')
 
-var build_dir = 'SQuAD-explorer/' // good to have this be the same as the repo name for gh-pages purposes
+var build_dir = 'data-centric-comp/' // good to have this be the same as the repo name for gh-pages purposes
 
 var rankEntries = function (entries) {
   entries.sort(function(a, b) {
@@ -75,9 +75,6 @@ var parseCompEntries = function (comp_file) {
       entry.date = o_entry.submission.created
       entry.em = parseFloat(o_entry.scores.exact_match)
       entry.f1 = parseFloat(o_entry.scores.f1)
-      if (entry.user === 'haptik101') {
-        console.log(entry)
-      }
       if (!(entry.em >= 0)) throw 'Score invalid'
       if (entry.em < 50) throw 'Score too low'
       //if (entry.model_name === '') {
@@ -182,7 +179,6 @@ gulp.task('connect', function () {
 var dataset_folder = './dataset/'
 var filepaths = [
   dataset_folder + 'dev-v1.1.json',
-  dataset_folder + 'dev-v2.0.json',
 ]
 
 var exploration_tasks = []
@@ -239,21 +235,15 @@ filepaths.forEach(function (filename) {
 gulp.task('process_comp_output', function (cb) {
   var jsonfile = require('jsonfile')
   var entries1 = parseCompEntries('./out-v1.1.json')
-  var entries2 = parseCompEntries('./out-v2.0.json')
-  jsonfile.writeFile('./results1.1.json', entries1, function (err){
-    if (err) return cb(err)
-    jsonfile.writeFile('./results2.0.json', entries2, cb)
-  })
+  jsonfile.writeFile('./results1.1.json', entries1, cb)
 })
 
 gulp.task('generate_index', ['process_comp_output'], function () {
   var test_1 = require('./results1.1.json')
-  var test_2 = require('./results2.0.json')
   var moment = require('moment')
   return gulp.src('views/index.pug')
       .pipe(data(function () {
         return { 'test1': test_1,
-          'test2': test_2,
           'moment': moment}
       }))
     .pipe(pug())
