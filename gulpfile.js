@@ -17,15 +17,8 @@ var build_dir = 'data-centric-comp/' // good to have this be the same as the rep
 
 var rankEntries = function (entries) {
   entries.sort(function(a, b) {
-    return (b.f1 + b.em) - (a.f1 + a.em);
-  })  // First sort by average F1 + EM
-/*
-  entries.sort(function (a, b) {
-    var f1Diff = Math.sign(b.f1 - a.f1)
-    var emDiff = Math.sign(b.em - a.em)
-    return f1Diff + emDiff
-  }) 
-  */
+    return b.f1- a.f1;
+  })
 
   for (var i = 0; i < entries.length; i++) {
     var entry = entries[i]
@@ -34,7 +27,7 @@ var rankEntries = function (entries) {
     } else {
       var prevEntry = entries[i - 1]
       var rank = prevEntry.rank
-      if (entry.em < prevEntry.em && entry.f1 < prevEntry.f1) rank++
+      if (entry.f1 < prevEntry.f1) rank++
       entry.rank = rank
     }
   }
@@ -73,15 +66,9 @@ var parseCompEntries = function (comp_file) {
         }
       }
       entry.date = o_entry.submission.created
-      entry.em = parseFloat(o_entry.scores.exact_match)
       entry.f1 = parseFloat(o_entry.scores.f1)
-      if (!(entry.em >= 0)) throw 'Score invalid'
-      if (entry.em < 50) throw 'Score too low'
-      //if (entry.model_name === '') {
-      //  entry.model_name = 'Unnamed submission by ' + entry.user
-      //}
-      // if (entry.em > 50 && entry.f1 > 60) {
-      if (entry.model_name !== '') {
+
+      if (entry.model_name !== '' && Number(entry.f1) == entry.f1) {
         entries.push(entry);
       }
     } catch (err) {
@@ -110,7 +97,6 @@ var parseEntries = function (htmlStr) {
     }
     delete entry.description
     entry.f1 = parseFloat(cells.eq(4).text())
-    entry.em = parseFloat(cells.eq(3).text())
     entry.date = cells.eq(2).text().trim()
     entries.push(entry)
   })

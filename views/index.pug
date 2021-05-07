@@ -18,7 +18,7 @@ mixin model_display(group, is_test)
       if is_test
         th Rank
       th Model
-      th F1
+      th Accuracy
     - var largest_f1 = Math.max.apply(null, group.map(function (model) { return model.f1; }))
     each model in group
       tr
@@ -55,38 +55,33 @@ block content
               p
                 | We've built a few resources to help you get started with the dataset.
               p 
-                | Download a copy of the dataset (distributed under the  
-                a(href="http://creativecommons.org/licenses/by-sa/4.0/legalcode") CC BY-SA 4.0
-                |  license):
+                | Download a copy of the dataset 
                 ul.list-unstyled
                   li
-                    a.btn.actionBtn.inverseBtn(href="/dataset/train-v2.0.json", download)
-                      | Training Set v2.0 (40 MB)
-                  li
-                    a.btn.actionBtn.inverseBtn(href="/dataset/dev-v2.0.json", download)
-                      | Dev Set v2.0 (4 MB)
+                    a.btn.actionBtn.inverseBtn(href="http://cs231n.stanford.edu/tiny-imagenet-200.zip", download)
+                      | Data Set
               p To evaluate your models, we have also made available the evaluation script we will use for official evaluation, along with a sample prediction file that the script will take as input. To run the evaluation, use 
                 code
-                  | python evaluate-v2.0.py &lt;path_to_dev-v2.0&gt; &lt;path_to_predictions&gt;
+                  | python evaluate.py &lt;path_to_dev&gt; &lt;path_to_predictions&gt;
                 |.
                 ul.list-unstyled
                   li
                     a.btn.actionBtn.inverseBtn(href="https://worksheets.codalab.org/rest/bundles/0x6b567e1cf2e041ec80d7098f031c5c9e/contents/blob/", download)
-                      | Evaluation Script v2.0
+                      | Evaluation Script
                   li
                     a.btn.actionBtn.inverseBtn(href="https://worksheets.codalab.org/bundles/0x8731effab84f41b7b874a070e40f61e2/", download)
-                      | Sample Prediction File (on Dev v2.0)
+                      | Sample Prediction File
               p Once you have a built a model that works to your expectations on the dev set, you submit it to get official scores on the dev and a hidden test set. To preserve the integrity of test results, we do not release the test set to the public. Instead, we require you to submit your model so that we can run it on the test set for you. Here's a tutorial walking you through official evaluation of your model:
               a.btn.actionBtn.inverseBtn(href="https://worksheets.codalab.org/worksheets/0x8212d84ca41c4150b555a075b19ccc05/")
                 | Submission Tutorial
-              p Because SQuAD is an ongoing effort, we expect the dataset to evolve.
+              p TODO add submission tutorial
               .infoHeadline
                 h2 Have Questions?
               p 
                 | Ask us questions at 
-                a(href="mailto:pranavsr@stanford.edu") pranavsr@stanford.edu
+                a(href="mailto:dillon@landing.ai") dillon@landing.ai
                 |  and 
-                a(href="mailto:robinjia@stanford.edu") robinjia@stanford.edu
+                a(href="mailto:lynn.he@deeplearning.ai") lynn.he@deeplearning.ai
                 | .
             .infoSubheadline
               include includes/github
