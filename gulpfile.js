@@ -49,24 +49,30 @@ var parseCompEntries = function (comp_file) {
       var o_entry = leaderboard[i]
       var entry = {}
       entry.user = o_entry.submission.user_name
-      var description = o_entry.submission.description.trim()
-      var regex_match = description.match(/(.*) ?\((.*)\) ?\((.*)\)(.*)/);
-      if (regex_match) {
-        entry.model_name = regex_match[1].trim() + " (" + regex_match[2].trim() + ")";
-        entry.institution = regex_match[3].trim();
-        if (regex_match[4].lastIndexOf('http') !== -1) {
-          entry.link = regex_match[4].trim()
-        }
-      } else {
-        entry.model_name = description.substr(0, description.lastIndexOf('(')).trim()
-        var firstPart = description.substr(description.lastIndexOf('(') + 1)
-        entry.institution = firstPart.substr(0, firstPart.lastIndexOf(')'))
-        if (description.lastIndexOf('http') !== -1) {
-          entry.link = description.substr(description.lastIndexOf('http')).trim()
-        }
-      }
+
+      // var description = o_entry.submission.description.trim()
+      // var regex_match = description.match(/(.*) ?\((.*)\) ?\((.*)\)(.*)/);
+      // if (regex_match) {
+      //   entry.model_name = regex_match[1].trim() + " (" + regex_match[2].trim() + ")";
+      //   entry.institution = regex_match[3].trim();
+      //   if (regex_match[4].lastIndexOf('http') !== -1) {
+      //     entry.link = regex_match[4].trim()
+      //   }
+      // } else {
+      //   entry.model_name = description.substr(0, description.lastIndexOf('(')).trim()
+      //   var firstPart = description.substr(description.lastIndexOf('(') + 1)
+      //   entry.institution = firstPart.substr(0, firstPart.lastIndexOf(')'))
+      //   if (description.lastIndexOf('http') !== -1) {
+      //     entry.link = description.substr(description.lastIndexOf('http')).trim()
+      //   }
+      // }
+
+      entry.model_name = "test model" 
+      entry.institution = "test institution" 
+      entry.link = "deeplearning.ai"
+
       entry.date = o_entry.submission.created
-      entry.f1 = parseFloat(o_entry.scores.f1)
+      entry.f1 = parseFloat(o_entry.scores.accuracy)
 
       if (entry.model_name !== '' && Number(entry.f1) == entry.f1) {
         entries.push(entry);
@@ -220,7 +226,7 @@ filepaths.forEach(function (filename) {
 
 gulp.task('process_comp_output', function (cb) {
   var jsonfile = require('jsonfile')
-  var entries1 = parseCompEntries('./out-v2.0.json')
+  var entries1 = parseCompEntries('./leaderboard.json')
   jsonfile.writeFile('./results.json', entries1, cb)
 })
 
