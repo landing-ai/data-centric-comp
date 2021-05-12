@@ -3,12 +3,12 @@ max_submissions_per_period: 5
 refresh_period_seconds: 1
 
 # UUID of the worksheet where prediction and evaluation bundles are created for submissions.
-log_worksheet_uuid: '0x39d3c5952de34856a1414d01bb62d7d9'    
+log_worksheet_uuid: '0x785a10980a2d4cb88c25840cb124456b'    
 
 # Configure the tag that participants use to submit to the competition.
 # In this example, any bundle with the tag `some-competition-submit` would be
 # considered as an official submission.
-submission_tag: data-centric-submission
+submission_tag: dc-submit
 
 # Configure how to mimic the submitted prediction bundles. When evaluating a submission, 
 # `new` bundle will replace `old` bundle.
@@ -16,8 +16,8 @@ submission_tag: data-centric-submission
 # might be the hidden test set.
 predict:
   mimic:
-  - {new: '0xee7f0298b3f74d6b86167422e3d2eafe', old: '0xdf394cc2d2b94e60a7c8c79cb3474916'}
-  tag: data-centric-predict
+    - {new: '0xee7f0298b3f74d6b86167422e3d2eafe', old: '0x0f4f14bb6fe54cb08f3fd932a530aab4'}
+  tag: dc-predict
 
 # Configure how to evaluate the new prediction bundles.
 # In this example, evaluate.py is script that takes in the paths of the test labels and 
@@ -30,14 +30,15 @@ evaluate:
   #            python evaluate.py test.json predictions.json
   # where {predict} gets filled in with the uuid of the mimicked bundle above.
   dependencies:
-  - {child_path: evaluate.py, parent_uuid: '0x1bd0f992d81248e2a7e94f6f84ccedc5'}
+  - {child_path: evaluate.py, parent_uuid: '0x698a25b03b9e4aa7964c9e4f4a6c90b6'}
   - {child_path: data.json, parent_uuid: '0x1a0cf934fe7a498d99914e5f466e1a90'}
   - {child_path: predictions.json, parent_uuid: '{predict}'}
   command: python evaluate.py predictions.json data.json
-  tag: data-centric-eval
+  tag: dc-eval
 
 # Define how to extract the scores from the evaluation bundle.
 # In this example, result.json is a JSON file outputted from the evaluation step
 # with F1 and exact match metrics (e.g. {"f1": 91, "exact_match": 92}).
 score_specs:
 - {key: '/result.json:accuracy', name: accuracy}
+# - {key: '/result.json:exact_match', name: exact_match}
