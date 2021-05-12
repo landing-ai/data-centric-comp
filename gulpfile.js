@@ -17,7 +17,7 @@ var build_dir = 'data-centric-comp/' // good to have this be the same as the rep
 
 var rankEntries = function (entries) {
   entries.sort(function(a, b) {
-    return b.f1- a.f1;
+    return b.acc- a.acc;
   })
 
   for (var i = 0; i < entries.length; i++) {
@@ -27,7 +27,7 @@ var rankEntries = function (entries) {
     } else {
       var prevEntry = entries[i - 1]
       var rank = prevEntry.rank
-      if (entry.f1 < prevEntry.f1) rank++
+      if (entry.acc < prevEntry.acc) rank++
       entry.rank = rank
     }
   }
@@ -72,9 +72,9 @@ var parseCompEntries = function (comp_file) {
       entry.link = "deeplearning.ai"
 
       entry.date = o_entry.submission.created
-      entry.f1 = parseFloat(o_entry.scores.accuracy)
+      entry.acc = parseFloat(o_entry.scores.accuracy)
 
-      if (entry.model_name !== '' && Number(entry.f1) == entry.f1) {
+      if (entry.model_name !== '' && Number(entry.acc) == entry.acc) {
         entries.push(entry);
       }
     } catch (err) {
@@ -102,7 +102,7 @@ var parseEntries = function (htmlStr) {
       entry.link = entry.description.substr(entry.description.lastIndexOf('http')).trim()
     }
     delete entry.description
-    entry.f1 = parseFloat(cells.eq(4).text())
+    entry.acc = parseFloat(cells.eq(4).text())
     entry.date = cells.eq(2).text().trim()
     entries.push(entry)
   })
