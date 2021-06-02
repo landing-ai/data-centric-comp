@@ -3,12 +3,12 @@ max_submissions_per_period: 5
 refresh_period_seconds: 1
 
 # UUID of the worksheet where prediction and evaluation bundles are created for submissions.
-log_worksheet_uuid: '0x785a10980a2d4cb88c25840cb124456b'    
+log_worksheet_uuid: '0xf442d1693b224182a6967844faf52249'    
 
 # Configure the tag that participants use to submit to the competition.
 # In this example, any bundle with the tag `some-competition-submit` would be
 # considered as an official submission.
-submission_tag: dc-submit
+submission_tag: submit-roman
 
 # Configure how to mimic the submitted prediction bundles. When evaluating a submission, 
 # `new` bundle will replace `old` bundle.
@@ -16,8 +16,8 @@ submission_tag: dc-submit
 # might be the hidden test set.
 predict:
   mimic:
-    - {new: '0xee7f0298b3f74d6b86167422e3d2eafe', old: '0x0f4f14bb6fe54cb08f3fd932a530aab4'}
-  tag: dc-predict
+    - {new: '0x5d034887a6e24cfd9849790447946ef2', old: '0x1a1aef4f21f24c8e8da471a58c5659b7'}
+  tag: predict-roman
 
 # Configure how to evaluate the new prediction bundles.
 # In this example, evaluate.py is script that takes in the paths of the test labels and 
@@ -30,15 +30,16 @@ evaluate:
   #            python evaluate.py test.json predictions.json
   # where {predict} gets filled in with the uuid of the mimicked bundle above.
   dependencies:
-  - {child_path: evaluate.py, parent_uuid: '0x698a25b03b9e4aa7964c9e4f4a6c90b6'}
-  - {child_path: data.json, parent_uuid: '0x1a0cf934fe7a498d99914e5f466e1a90'}
+  - {child_path: evaluate.py, parent_uuid: '0x654bf5fd29b9453580562304e3f09ea9'}
+  - {child_path: test, parent_uuid: '0x5d034887a6e24cfd9849790447946ef2'}
   - {child_path: predictions.json, parent_uuid: '{predict}'}
-  command: python evaluate.py predictions.json data.json
-  tag: dc-eval
+  command: python evaluate.py predictions.json test
+  tag: eval-roman
+  metadata:
+    request_docker_image: jupyter/tensorflow-notebook
 
 # Define how to extract the scores from the evaluation bundle.
 # In this example, result.json is a JSON file outputted from the evaluation step
 # with F1 and exact match metrics (e.g. {"f1": 91, "exact_match": 92}).
 score_specs:
 - {key: '/result.json:accuracy', name: accuracy}
-# - {key: '/result.json:exact_match', name: exact_match}
