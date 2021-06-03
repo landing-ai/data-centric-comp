@@ -48,15 +48,15 @@ var parseCompEntries = function (comp_file) {
     try {
       var o_entry = leaderboard[i]
       var entry = {}
-      entry.user = o_entry.submission.user_name
+      entry.user = o_entry.submission.user_name;
 
       var description = o_entry.submission.description.trim()
-      var regex_match = description.match(/(.*) ?\((.*)\)(.*)/);
+      var regex_match = description.match(/(.*) ?\((.*)\)(.*)/)
       if (regex_match) {
         entry.model_name = regex_match[1].trim();
         entry.institution = regex_match[2].trim();
         if (regex_match[3].lastIndexOf('http') !== -1) {
-          entry.link = regex_match[4].trim()
+          entry.link = regex_match[3].trim()
         }
       } else {
         entry.model_name = description.substr(0, description.lastIndexOf('(')).trim()
