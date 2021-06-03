@@ -4,17 +4,17 @@
         "allow_orphans": true,
         "count_failed_submissions": true,
         "evaluate": {
-            "command": "python evaluate.py predictions.json data.json",
+            "command": "python evaluate.py predictions.json test",
             "dependencies": [
                 {
                     "child_path": "evaluate.py",
                     "parent_path": "",
-                    "parent_uuid": "0x698a25b03b9e4aa7964c9e4f4a6c90b6"
+                    "parent_uuid": "0x654bf5fd29b9453580562304e3f09ea9"
                 },
                 {
-                    "child_path": "data.json",
+                    "child_path": "test",
                     "parent_path": "",
-                    "parent_uuid": "0x1a0cf934fe7a498d99914e5f466e1a90"
+                    "parent_uuid": "0x5d034887a6e24cfd9849790447946ef2"
                 },
                 {
                     "child_path": "predictions.json",
@@ -22,11 +22,13 @@
                     "parent_uuid": "{predict}"
                 }
             ],
-            "metadata": {},
-            "tag": "dc-eval"
+            "metadata": {
+                "request_docker_image": "jupyter/tensorflow-notebook"
+            },
+            "tag": "eval-roman"
         },
         "host": "https://worksheets.codalab.org",
-        "log_worksheet_uuid": "0x785a10980a2d4cb88c25840cb124456b",
+        "log_worksheet_uuid": "0xf442d1693b224182a6967844faf52249",
         "make_predictions_public": false,
         "max_leaderboard_size": 10000,
         "max_submissions_per_period": 5,
@@ -37,11 +39,11 @@
             "metadata": {},
             "mimic": [
                 {
-                    "new": "0xee7f0298b3f74d6b86167422e3d2eafe",
-                    "old": "0x0f4f14bb6fe54cb08f3fd932a530aab4"
+                    "new": "0x5d034887a6e24cfd9849790447946ef2",
+                    "old": "0x1a1aef4f21f24c8e8da471a58c5659b7"
                 }
             ],
-            "tag": "dc-predict"
+            "tag": "predict-roman"
         },
         "quota_period_seconds": 86400,
         "refresh_period_seconds": 1,
@@ -51,307 +53,58 @@
                 "name": "accuracy"
             }
         ],
-        "submission_tag": "dc-submit"
+        "submission_tag": "submit-roman"
     },
     "leaderboard": [
         {
             "bundle": {
-                "args": "run evaluate.py:0x698a25b03b9e4aa7964c9e4f4a6c90b6 data.json:0x1a0cf934fe7a498d99914e5f466e1a90 predictions.json:0xcca9933c415b403e8254e6fa710d91d3 \"python evaluate.py predictions.json data.json\" --request-cpus 1 --request-memory 2g",
+                "args": "run evaluate.py:0x654bf5fd29b9453580562304e3f09ea9 test:0x5d034887a6e24cfd9849790447946ef2 predictions.json:0x0e683e0bf51e4b2fa37438c8f271f1d6 \"python evaluate.py predictions.json test\" --request-cpus 1 --request-docker-image jupyter/tensorflow-notebook --request-memory 2g",
                 "bundle_type": "run",
-                "command": "python evaluate.py predictions.json data.json",
-                "data_hash": "0xacfaa78db750bc2177a6dcc8892b30ddbae42472",
+                "command": "python evaluate.py predictions.json test",
+                "data_hash": "0xdfb3dd8c1ca119da47c20cb4159accc63da3f647",
                 "dependencies": [
                     {
                         "child_path": "evaluate.py",
-                        "child_uuid": "0xd937ed6548954fdfa7d395cb855c728f",
+                        "child_uuid": "0xfb69378425d440009a8b5b3018b88992",
                         "parent_name": "evaluate.py",
                         "parent_path": "",
-                        "parent_uuid": "0x698a25b03b9e4aa7964c9e4f4a6c90b6"
+                        "parent_uuid": "0x654bf5fd29b9453580562304e3f09ea9"
                     },
                     {
-                        "child_path": "data.json",
-                        "child_uuid": "0xd937ed6548954fdfa7d395cb855c728f",
-                        "parent_name": "data.json",
+                        "child_path": "test",
+                        "child_uuid": "0xfb69378425d440009a8b5b3018b88992",
+                        "parent_name": "test",
                         "parent_path": "",
-                        "parent_uuid": "0x1a0cf934fe7a498d99914e5f466e1a90"
+                        "parent_uuid": "0x5d034887a6e24cfd9849790447946ef2"
                     },
                     {
                         "child_path": "predictions.json",
-                        "child_uuid": "0xd937ed6548954fdfa7d395cb855c728f",
-                        "parent_name": "DeepLearning.AI-sample_submission-predict",
+                        "child_uuid": "0xfb69378425d440009a8b5b3018b88992",
+                        "parent_name": "DeepLearning.AI-baseline-predict",
                         "parent_path": "",
-                        "parent_uuid": "0xcca9933c415b403e8254e6fa710d91d3"
+                        "parent_uuid": "0x0e683e0bf51e4b2fa37438c8f271f1d6"
                     }
                 ],
                 "frozen": null,
-                "id": "0xd937ed6548954fdfa7d395cb855c728f",
-                "is_anonymous": false,
-                "metadata": {
-                    "actions": [],
-                    "allow_failed_dependencies": false,
-                    "created": 1621390931,
-                    "data_size": 4115,
-                    "description": "{\"submit_id\": \"0x50914342cc5843c6883d6476e47e7cfd\", \"submitter_id\": \"0xc4d5327b6ec3447f956a334fde285eaa\", \"predict_id\": \"0xcca9933c415b403e8254e6fa710d91d3\"}",
-                    "docker_image": "codalab/default-cpu@sha256:ff7de716ac5f94d9b4ff8d6341d60166ed5b0163cc05d8d51da9418511caf5e1",
-                    "exclude_patterns": [],
-                    "exitcode": 0,
-                    "last_updated": 1621391053,
-                    "name": "DeepLearning.AI-sample_submission-results",
-                    "remote": "767b3995db77-f551c00ac93440da8bd8e28894f21bf2",
-                    "request_cpus": 1,
-                    "request_disk": "",
-                    "request_docker_image": "",
-                    "request_gpus": 0,
-                    "request_memory": "2g",
-                    "request_network": false,
-                    "request_priority": 0,
-                    "request_queue": "",
-                    "request_time": "",
-                    "run_status": "Finished",
-                    "started": 1621391003,
-                    "tags": [
-                        "dc-eval"
-                    ],
-                    "time": 0.948114,
-                    "time_system": 0.0,
-                    "time_user": 0.0
-                },
-                "owner": {
-                    "id": "0xc4d5327b6ec3447f956a334fde285eaa",
-                    "type": "users"
-                },
-                "permission": 2,
-                "permission_spec": "all",
-                "state": "ready",
-                "uuid": "0xd937ed6548954fdfa7d395cb855c728f"
-            },
-            "scores": {
-                "accuracy": 0.834
-            },
-            "submission": {
-                "created": 1621015672,
-                "description": "sample_submission (DeepLearning.AI)",
-                "num_period_submissions": 0,
-                "num_total_submissions": 4,
-                "public": true,
-                "user_name": "DeepLearning.AI"
-            }
-        },
-        {
-            "bundle": {
-                "args": "run evaluate.py:0x698a25b03b9e4aa7964c9e4f4a6c90b6 data.json:0x1a0cf934fe7a498d99914e5f466e1a90 predictions.json:0xcff6596500b94bddb633cc4ca9dc282f \"python evaluate.py predictions.json data.json\" --request-cpus 1 --request-memory 2g",
-                "bundle_type": "run",
-                "command": "python evaluate.py predictions.json data.json",
-                "data_hash": "0xd794454172ea65e79c7940c627e05ec9d1639ad4",
-                "dependencies": [
-                    {
-                        "child_path": "evaluate.py",
-                        "child_uuid": "0xf947f7b2ccbc40b7bcdc4b585324f5d9",
-                        "parent_name": "evaluate.py",
-                        "parent_path": "",
-                        "parent_uuid": "0x698a25b03b9e4aa7964c9e4f4a6c90b6"
-                    },
-                    {
-                        "child_path": "data.json",
-                        "child_uuid": "0xf947f7b2ccbc40b7bcdc4b585324f5d9",
-                        "parent_name": "data.json",
-                        "parent_path": "",
-                        "parent_uuid": "0x1a0cf934fe7a498d99914e5f466e1a90"
-                    },
-                    {
-                        "child_path": "predictions.json",
-                        "child_uuid": "0xf947f7b2ccbc40b7bcdc4b585324f5d9",
-                        "parent_name": "DLAI-baseline-predict",
-                        "parent_path": "",
-                        "parent_uuid": "0xcff6596500b94bddb633cc4ca9dc282f"
-                    }
-                ],
-                "frozen": null,
-                "id": "0xf947f7b2ccbc40b7bcdc4b585324f5d9",
-                "is_anonymous": false,
-                "metadata": {
-                    "actions": [],
-                    "allow_failed_dependencies": false,
-                    "created": 1620861477,
-                    "data_size": 4115,
-                    "description": "{\"submit_id\": \"0x859ebbf40bab4510a9cb7cf6a24eab5e\", \"submitter_id\": \"0xc4d5327b6ec3447f956a334fde285eaa\", \"predict_id\": \"0xcff6596500b94bddb633cc4ca9dc282f\"}",
-                    "docker_image": "codalab/default-cpu@sha256:ff7de716ac5f94d9b4ff8d6341d60166ed5b0163cc05d8d51da9418511caf5e1",
-                    "exclude_patterns": [],
-                    "exitcode": 0,
-                    "last_updated": 1620861586,
-                    "name": "DLAI-baseline-results",
-                    "remote": "767b3995db77-f551c00ac93440da8bd8e28894f21bf2",
-                    "request_cpus": 1,
-                    "request_disk": "",
-                    "request_docker_image": "",
-                    "request_gpus": 0,
-                    "request_memory": "2g",
-                    "request_network": false,
-                    "request_priority": 0,
-                    "request_queue": "",
-                    "request_time": "",
-                    "run_status": "Finished",
-                    "started": 1620861537,
-                    "tags": [
-                        "dc-eval"
-                    ],
-                    "time": 0.48682,
-                    "time_system": 0.0,
-                    "time_user": 0.0
-                },
-                "owner": {
-                    "id": "0xc4d5327b6ec3447f956a334fde285eaa",
-                    "type": "users"
-                },
-                "permission": 2,
-                "permission_spec": "all",
-                "state": "ready",
-                "uuid": "0xf947f7b2ccbc40b7bcdc4b585324f5d9"
-            },
-            "scores": {
-                "accuracy": 0.826
-            },
-            "submission": {
-                "created": 1620861453,
-                "description": "",
-                "num_period_submissions": 0,
-                "num_total_submissions": 4,
-                "public": true,
-                "user_name": "DeepLearning.AI"
-            }
-        },
-        {
-            "bundle": {
-                "args": "run evaluate.py:0x698a25b03b9e4aa7964c9e4f4a6c90b6 data.json:0x1a0cf934fe7a498d99914e5f466e1a90 predictions.json:0x6bed03d962bd4900ab16fb25d98731e5 \"python evaluate.py predictions.json data.json\" --request-cpus 1 --request-memory 2g",
-                "bundle_type": "run",
-                "command": "python evaluate.py predictions.json data.json",
-                "data_hash": "0x1ef2a1d5e74250f6faefd89f0055eb63571cdb8d",
-                "dependencies": [
-                    {
-                        "child_path": "evaluate.py",
-                        "child_uuid": "0x920853e8dc314915b25103971cebaa66",
-                        "parent_name": "evaluate.py",
-                        "parent_path": "",
-                        "parent_uuid": "0x698a25b03b9e4aa7964c9e4f4a6c90b6"
-                    },
-                    {
-                        "child_path": "data.json",
-                        "child_uuid": "0x920853e8dc314915b25103971cebaa66",
-                        "parent_name": "data.json",
-                        "parent_path": "",
-                        "parent_uuid": "0x1a0cf934fe7a498d99914e5f466e1a90"
-                    },
-                    {
-                        "child_path": "predictions.json",
-                        "child_uuid": "0x920853e8dc314915b25103971cebaa66",
-                        "parent_name": "DLAI-test2-predict",
-                        "parent_path": "",
-                        "parent_uuid": "0x6bed03d962bd4900ab16fb25d98731e5"
-                    }
-                ],
-                "frozen": null,
-                "id": "0x920853e8dc314915b25103971cebaa66",
-                "is_anonymous": false,
-                "metadata": {
-                    "actions": [],
-                    "allow_failed_dependencies": false,
-                    "created": 1620858298,
-                    "data_size": 4114,
-                    "description": "{\"submit_id\": \"0x1147264caf7f448da3dc2e8e39bcebf2\", \"submitter_id\": \"0xc4d5327b6ec3447f956a334fde285eaa\", \"predict_id\": \"0x6bed03d962bd4900ab16fb25d98731e5\"}",
-                    "docker_image": "codalab/default-cpu@sha256:ff7de716ac5f94d9b4ff8d6341d60166ed5b0163cc05d8d51da9418511caf5e1",
-                    "exclude_patterns": [],
-                    "exitcode": 0,
-                    "last_updated": 1620858410,
-                    "name": "DLAI-test2-results",
-                    "remote": "767b3995db77-f551c00ac93440da8bd8e28894f21bf2",
-                    "request_cpus": 1,
-                    "request_disk": "",
-                    "request_docker_image": "",
-                    "request_gpus": 0,
-                    "request_memory": "2g",
-                    "request_network": false,
-                    "request_priority": 0,
-                    "request_queue": "",
-                    "request_time": "",
-                    "run_status": "Finished",
-                    "started": 1620858359,
-                    "tags": [
-                        "dc-eval"
-                    ],
-                    "time": 0.453792,
-                    "time_system": 0.0,
-                    "time_user": 0.0
-                },
-                "owner": {
-                    "id": "0xc4d5327b6ec3447f956a334fde285eaa",
-                    "type": "users"
-                },
-                "permission": 2,
-                "permission_spec": "all",
-                "state": "ready",
-                "uuid": "0x920853e8dc314915b25103971cebaa66"
-            },
-            "scores": {
-                "accuracy": 0.82
-            },
-            "submission": {
-                "created": 1620858260,
-                "description": "",
-                "num_period_submissions": 0,
-                "num_total_submissions": 4,
-                "public": true,
-                "user_name": "DeepLearning.AI"
-            }
-        },
-        {
-            "bundle": {
-                "args": "run evaluate.py:0x698a25b03b9e4aa7964c9e4f4a6c90b6 data.json:0x1a0cf934fe7a498d99914e5f466e1a90 predictions.json:0x7bed29be6cd94fdea381a673eef4212a \"python evaluate.py predictions.json data.json\" --request-cpus 1 --request-memory 2g",
-                "bundle_type": "run",
-                "command": "python evaluate.py predictions.json data.json",
-                "data_hash": "0x1ef2a1d5e74250f6faefd89f0055eb63571cdb8d",
-                "dependencies": [
-                    {
-                        "child_path": "evaluate.py",
-                        "child_uuid": "0xf4d2e70f690447f2814e43272432c4c1",
-                        "parent_name": "evaluate.py",
-                        "parent_path": "",
-                        "parent_uuid": "0x698a25b03b9e4aa7964c9e4f4a6c90b6"
-                    },
-                    {
-                        "child_path": "data.json",
-                        "child_uuid": "0xf4d2e70f690447f2814e43272432c4c1",
-                        "parent_name": "data.json",
-                        "parent_path": "",
-                        "parent_uuid": "0x1a0cf934fe7a498d99914e5f466e1a90"
-                    },
-                    {
-                        "child_path": "predictions.json",
-                        "child_uuid": "0xf4d2e70f690447f2814e43272432c4c1",
-                        "parent_name": "simon.zyrianov-beta-submission-predict",
-                        "parent_path": "",
-                        "parent_uuid": "0x7bed29be6cd94fdea381a673eef4212a"
-                    }
-                ],
-                "frozen": null,
-                "id": "0xf4d2e70f690447f2814e43272432c4c1",
+                "id": "0xfb69378425d440009a8b5b3018b88992",
                 "is_anonymous": false,
                 "metadata": {
                     "actions": [],
                     "allow_failed_dependencies": false,
                     "cpu_usage": 0.0,
-                    "created": 1621392792,
-                    "data_size": 4114,
-                    "description": "{\"submit_id\": \"0xbd87f372d2e34977a4327e9fa0e6ab12\", \"submitter_id\": \"0xb665972a114f4a0fb7bfe884570e4c52\", \"predict_id\": \"0x7bed29be6cd94fdea381a673eef4212a\"}",
-                    "docker_image": "codalab/default-cpu@sha256:ff7de716ac5f94d9b4ff8d6341d60166ed5b0163cc05d8d51da9418511caf5e1",
+                    "created": 1622581970,
+                    "data_size": 9018,
+                    "description": "{\"submit_id\": \"0xa4a5b7ccddc240b5bf30f1f08ddfdcfc\", \"submitter_id\": \"0xc4d5327b6ec3447f956a334fde285eaa\", \"predict_id\": \"0x0e683e0bf51e4b2fa37438c8f271f1d6\"}",
+                    "docker_image": "jupyter/tensorflow-notebook@sha256:0b066cc22fa1a02d3359e51276236f9b5035cd8f50bbee2e894d689343500d28",
                     "exclude_patterns": [],
                     "exitcode": 0,
-                    "last_updated": 1621393362,
+                    "last_updated": 1622582113,
                     "memory_usage": 0.0,
-                    "name": "simon.zyrianov-beta-submission-results",
-                    "remote": "2c1992559835-5deb73301c9d4a5abd85ea87d2398ad8",
+                    "name": "DeepLearning.AI-baseline-results",
+                    "remote": "280ea3a4b656-394405f9f68842a4ab2681725a7eafd6",
                     "request_cpus": 1,
                     "request_disk": "",
-                    "request_docker_image": "",
+                    "request_docker_image": "jupyter/tensorflow-notebook",
                     "request_gpus": 0,
                     "request_memory": "2g",
                     "request_network": false,
@@ -359,16 +112,16 @@
                     "request_queue": "",
                     "request_time": "",
                     "run_status": "Finished",
-                    "started": 1621392907,
+                    "started": 1622582063,
                     "tags": [
-                        "dc-eval"
+                        "eval-roman"
                     ],
-                    "time": 0.620457,
-                    "time_cleaning_up": 8.149779081344604,
-                    "time_preparing": 418.5070927143097,
-                    "time_running": 10.1411771774292,
+                    "time": 4.410276,
+                    "time_cleaning_up": 8.156379222869873,
+                    "time_preparing": 14.192792177200317,
+                    "time_running": 10.124915599822998,
                     "time_system": 0.0,
-                    "time_uploading_results": 16.30497407913208,
+                    "time_uploading_results": 17.594403743743896,
                     "time_user": 0.0
                 },
                 "owner": {
@@ -378,146 +131,62 @@
                 "permission": 2,
                 "permission_spec": "all",
                 "state": "ready",
-                "uuid": "0xf4d2e70f690447f2814e43272432c4c1"
+                "uuid": "0xfb69378425d440009a8b5b3018b88992"
             },
             "scores": {
-                "accuracy": 0.82
+                "accuracy": 0.5503472222222222
             },
             "submission": {
-                "created": 1621392386,
-                "description": "beta-submission (Beta Program)",
-                "num_period_submissions": 0,
-                "num_total_submissions": 1,
-                "public": true,
-                "user_name": "simon.zyrianov"
-            }
-        },
-        {
-            "bundle": {
-                "args": "run evaluate.py:0x698a25b03b9e4aa7964c9e4f4a6c90b6 data.json:0x1a0cf934fe7a498d99914e5f466e1a90 predictions.json:0x7f58977ab47c43cca7d74ee8a8cfb25a \"python evaluate.py predictions.json data.json\" --request-cpus 1 --request-memory 2g",
-                "bundle_type": "run",
-                "command": "python evaluate.py predictions.json data.json",
-                "data_hash": "0x2efd1558472692d69d7dcd5d961678bc9fcf89f6",
-                "dependencies": [
-                    {
-                        "child_path": "evaluate.py",
-                        "child_uuid": "0xc2e948e01a3a42d9be6553f2d979748e",
-                        "parent_name": "evaluate.py",
-                        "parent_path": "",
-                        "parent_uuid": "0x698a25b03b9e4aa7964c9e4f4a6c90b6"
-                    },
-                    {
-                        "child_path": "data.json",
-                        "child_uuid": "0xc2e948e01a3a42d9be6553f2d979748e",
-                        "parent_name": "data.json",
-                        "parent_path": "",
-                        "parent_uuid": "0x1a0cf934fe7a498d99914e5f466e1a90"
-                    },
-                    {
-                        "child_path": "predictions.json",
-                        "child_uuid": "0xc2e948e01a3a42d9be6553f2d979748e",
-                        "parent_name": "DLAI-sample-submission-predict",
-                        "parent_path": "",
-                        "parent_uuid": "0x7f58977ab47c43cca7d74ee8a8cfb25a"
-                    }
-                ],
-                "frozen": null,
-                "id": "0xc2e948e01a3a42d9be6553f2d979748e",
-                "is_anonymous": false,
-                "metadata": {
-                    "actions": [],
-                    "allow_failed_dependencies": false,
-                    "created": 1620861192,
-                    "data_size": 4115,
-                    "description": "{\"submit_id\": \"0x94e2ccd6597146eebeddfc532dea1206\", \"submitter_id\": \"0xc4d5327b6ec3447f956a334fde285eaa\", \"predict_id\": \"0x7f58977ab47c43cca7d74ee8a8cfb25a\"}",
-                    "docker_image": "codalab/default-cpu@sha256:ff7de716ac5f94d9b4ff8d6341d60166ed5b0163cc05d8d51da9418511caf5e1",
-                    "exclude_patterns": [],
-                    "exitcode": 0,
-                    "last_updated": 1620861301,
-                    "name": "DLAI-sample-submission-results",
-                    "remote": "dae9580999f1-0078561f8eb144cea46e82879870562a",
-                    "request_cpus": 1,
-                    "request_disk": "",
-                    "request_docker_image": "",
-                    "request_gpus": 0,
-                    "request_memory": "2g",
-                    "request_network": false,
-                    "request_priority": 0,
-                    "request_queue": "",
-                    "request_time": "",
-                    "run_status": "Finished",
-                    "started": 1620861252,
-                    "tags": [
-                        "dc-eval"
-                    ],
-                    "time": 0.442129,
-                    "time_system": 0.0,
-                    "time_user": 0.0
-                },
-                "owner": {
-                    "id": "0xc4d5327b6ec3447f956a334fde285eaa",
-                    "type": "users"
-                },
-                "permission": 2,
-                "permission_spec": "all",
-                "state": "ready",
-                "uuid": "0xc2e948e01a3a42d9be6553f2d979748e"
-            },
-            "scores": {
-                "accuracy": 0.806
-            },
-            "submission": {
-                "created": 1620860890,
-                "description": "baseline (DeepLearning.AI)",
-                "num_period_submissions": 0,
-                "num_total_submissions": 4,
+                "created": 1622581933,
+                "description": "{sample_submission} (DeepLearning.AI) https://www.deeplearning.ai/",
+                "num_period_submissions": 1,
+                "num_total_submissions": 2,
                 "public": true,
                 "user_name": "DeepLearning.AI"
             }
         },
         {
             "bundle": {
-                "args": "run evaluate.py:0x698a25b03b9e4aa7964c9e4f4a6c90b6 data.json:0x92f88d8bab4a46eda6a323de4932de4f predictions.json:0xcb9a410da61f4aca95ab9056d3f5db77 \"python evaluate.py predictions.json data.json\" --request-cpus 1 --request-memory 2g",
+                "args": "run evaluate.py:0x654bf5fd29b9453580562304e3f09ea9 test:0x5d034887a6e24cfd9849790447946ef2 predictions.json:0x7e6392d7e524439da59d62df89cb0c88 \"python evaluate.py predictions.json test\" --request-cpus 1 --request-docker-image jupyter/tensorflow-notebook --request-memory 2g",
                 "bundle_type": "run",
-                "command": "python evaluate.py predictions.json data.json",
+                "command": "python evaluate.py predictions.json test",
                 "data_hash": null,
                 "dependencies": [
                     {
                         "child_path": "evaluate.py",
-                        "child_uuid": "0x9c98b333ef7e4c8483bce4cd6a459902",
+                        "child_uuid": "0x7384323787cb4fc7ac2db6ca93213b62",
                         "parent_name": "evaluate.py",
                         "parent_path": "",
-                        "parent_uuid": "0x698a25b03b9e4aa7964c9e4f4a6c90b6"
+                        "parent_uuid": "0x654bf5fd29b9453580562304e3f09ea9"
                     },
                     {
-                        "child_path": "data.json",
-                        "child_uuid": "0x9c98b333ef7e4c8483bce4cd6a459902",
-                        "parent_name": null,
+                        "child_path": "test",
+                        "child_uuid": "0x7384323787cb4fc7ac2db6ca93213b62",
+                        "parent_name": "test",
                         "parent_path": "",
-                        "parent_uuid": "0x92f88d8bab4a46eda6a323de4932de4f"
+                        "parent_uuid": "0x5d034887a6e24cfd9849790447946ef2"
                     },
                     {
                         "child_path": "predictions.json",
-                        "child_uuid": "0x9c98b333ef7e4c8483bce4cd6a459902",
-                        "parent_name": "DLAI-test1-predict",
+                        "child_uuid": "0x7384323787cb4fc7ac2db6ca93213b62",
+                        "parent_name": "DeepLearning.AI-sample_submission-predict",
                         "parent_path": "",
-                        "parent_uuid": "0xcb9a410da61f4aca95ab9056d3f5db77"
+                        "parent_uuid": "0x7e6392d7e524439da59d62df89cb0c88"
                     }
                 ],
                 "frozen": null,
-                "id": "0x9c98b333ef7e4c8483bce4cd6a459902",
+                "id": "0x7384323787cb4fc7ac2db6ca93213b62",
                 "is_anonymous": false,
                 "metadata": {
                     "actions": [],
                     "allow_failed_dependencies": false,
-                    "created": 1620857641,
-                    "description": "",
+                    "created": 1622736801,
+                    "description": "{\"submit_id\": \"0x42adff3aab314ae79b7216c1d91f8875\", \"submitter_id\": \"0xc4d5327b6ec3447f956a334fde285eaa\", \"predict_id\": \"0x7e6392d7e524439da59d62df89cb0c88\"}",
                     "exclude_patterns": [],
-                    "failure_message": " Parent bundles failed: 0xcb9a410da61f4aca95ab9056d3f5db77 (Please use the --allow-failed-dependencies flag to depend on results of failed or killed bundles)",
-                    "name": "DLAI-test1-results",
+                    "name": "DeepLearning.AI-sample_submission-results",
                     "request_cpus": 1,
                     "request_disk": "",
-                    "request_docker_image": "",
+                    "request_docker_image": "jupyter/tensorflow-notebook",
                     "request_gpus": 0,
                     "request_memory": "2g",
                     "request_network": false,
@@ -525,7 +194,7 @@
                     "request_queue": "",
                     "request_time": "",
                     "tags": [
-                        "dc-eval"
+                        "eval-roman"
                     ]
                 },
                 "owner": {
@@ -534,21 +203,167 @@
                 },
                 "permission": 2,
                 "permission_spec": "all",
-                "state": "failed",
-                "uuid": "0x9c98b333ef7e4c8483bce4cd6a459902"
+                "state": "created",
+                "uuid": "0x7384323787cb4fc7ac2db6ca93213b62"
             },
             "scores": {
                 "accuracy": null
             },
             "submission": {
-                "created": 1620857641,
+                "created": 1622595585,
                 "description": "",
-                "num_period_submissions": 0,
-                "num_total_submissions": 0,
-                "public": null,
-                "user_name": null
+                "num_period_submissions": 1,
+                "num_total_submissions": 2,
+                "public": true,
+                "user_name": "DeepLearning.AI"
+            }
+        },
+        {
+            "bundle": {
+                "args": "run evaluate.py:0x654bf5fd29b9453580562304e3f09ea9 test:0x5d034887a6e24cfd9849790447946ef2 predictions.json:0x670f6aae02d94af193303da1208beee8 \"python evaluate.py predictions.json test\" --request-cpus 1 --request-docker-image jupyter/tensorflow-notebook --request-memory 2g",
+                "bundle_type": "run",
+                "command": "python evaluate.py predictions.json test",
+                "data_hash": null,
+                "dependencies": [
+                    {
+                        "child_path": "evaluate.py",
+                        "child_uuid": "0x1b9d5a4c4abf499ea33c5e0602456e25",
+                        "parent_name": "evaluate.py",
+                        "parent_path": "",
+                        "parent_uuid": "0x654bf5fd29b9453580562304e3f09ea9"
+                    },
+                    {
+                        "child_path": "test",
+                        "child_uuid": "0x1b9d5a4c4abf499ea33c5e0602456e25",
+                        "parent_name": "test",
+                        "parent_path": "",
+                        "parent_uuid": "0x5d034887a6e24cfd9849790447946ef2"
+                    },
+                    {
+                        "child_path": "predictions.json",
+                        "child_uuid": "0x1b9d5a4c4abf499ea33c5e0602456e25",
+                        "parent_name": "billchenxi-predictions.json-predict",
+                        "parent_path": "",
+                        "parent_uuid": "0x670f6aae02d94af193303da1208beee8"
+                    }
+                ],
+                "frozen": null,
+                "id": "0x1b9d5a4c4abf499ea33c5e0602456e25",
+                "is_anonymous": false,
+                "metadata": {
+                    "actions": [],
+                    "allow_failed_dependencies": false,
+                    "created": 1622736803,
+                    "description": "{\"submit_id\": \"0xf93b1fe2c6e24de1bbbdec2d40cdb205\", \"submitter_id\": \"0x5b81065f425a43afbb1236e683a97fb5\", \"predict_id\": \"0x670f6aae02d94af193303da1208beee8\"}",
+                    "exclude_patterns": [],
+                    "name": "billchenxi-predictions.json-results",
+                    "request_cpus": 1,
+                    "request_disk": "",
+                    "request_docker_image": "jupyter/tensorflow-notebook",
+                    "request_gpus": 0,
+                    "request_memory": "2g",
+                    "request_network": false,
+                    "request_priority": 0,
+                    "request_queue": "",
+                    "request_time": "",
+                    "tags": [
+                        "eval-roman"
+                    ]
+                },
+                "owner": {
+                    "id": "0xc4d5327b6ec3447f956a334fde285eaa",
+                    "type": "users"
+                },
+                "permission": 2,
+                "permission_spec": "all",
+                "state": "created",
+                "uuid": "0x1b9d5a4c4abf499ea33c5e0602456e25"
+            },
+            "scores": {
+                "accuracy": null
+            },
+            "submission": {
+                "created": 1622673588,
+                "description": "{sample_submission} (Uni of KY) www.billchenxi.github.io",
+                "num_period_submissions": 1,
+                "num_total_submissions": 1,
+                "public": true,
+                "user_name": "billchenxi"
+            }
+        },
+        {
+            "bundle": {
+                "args": "run evaluate.py:0x654bf5fd29b9453580562304e3f09ea9 test:0x5d034887a6e24cfd9849790447946ef2 predictions.json:0xa803236022be45249070ce075c9747f2 \"python evaluate.py predictions.json test\" --request-cpus 1 --request-docker-image jupyter/tensorflow-notebook --request-memory 2g",
+                "bundle_type": "run",
+                "command": "python evaluate.py predictions.json test",
+                "data_hash": null,
+                "dependencies": [
+                    {
+                        "child_path": "evaluate.py",
+                        "child_uuid": "0x2de020f638b340c7b1a6496b6cd12dc5",
+                        "parent_name": "evaluate.py",
+                        "parent_path": "",
+                        "parent_uuid": "0x654bf5fd29b9453580562304e3f09ea9"
+                    },
+                    {
+                        "child_path": "test",
+                        "child_uuid": "0x2de020f638b340c7b1a6496b6cd12dc5",
+                        "parent_name": "test",
+                        "parent_path": "",
+                        "parent_uuid": "0x5d034887a6e24cfd9849790447946ef2"
+                    },
+                    {
+                        "child_path": "predictions.json",
+                        "child_uuid": "0x2de020f638b340c7b1a6496b6cd12dc5",
+                        "parent_name": "waihoh-sample_submission-predict",
+                        "parent_path": "",
+                        "parent_uuid": "0xa803236022be45249070ce075c9747f2"
+                    }
+                ],
+                "frozen": null,
+                "id": "0x2de020f638b340c7b1a6496b6cd12dc5",
+                "is_anonymous": false,
+                "metadata": {
+                    "actions": [],
+                    "allow_failed_dependencies": false,
+                    "created": 1622736805,
+                    "description": "{\"submit_id\": \"0x7a404aa145824c7d9ad28eb43ba04cb5\", \"submitter_id\": \"0xd0d22faf66f141f689780b4ab5c3e79f\", \"predict_id\": \"0xa803236022be45249070ce075c9747f2\"}",
+                    "exclude_patterns": [],
+                    "name": "waihoh-sample_submission-results",
+                    "request_cpus": 1,
+                    "request_disk": "",
+                    "request_docker_image": "jupyter/tensorflow-notebook",
+                    "request_gpus": 0,
+                    "request_memory": "2g",
+                    "request_network": false,
+                    "request_priority": 0,
+                    "request_queue": "",
+                    "request_time": "",
+                    "tags": [
+                        "eval-roman"
+                    ]
+                },
+                "owner": {
+                    "id": "0xc4d5327b6ec3447f956a334fde285eaa",
+                    "type": "users"
+                },
+                "permission": 2,
+                "permission_spec": "all",
+                "state": "created",
+                "uuid": "0x2de020f638b340c7b1a6496b6cd12dc5"
+            },
+            "scores": {
+                "accuracy": null
+            },
+            "submission": {
+                "created": 1622734929,
+                "description": "",
+                "num_period_submissions": 1,
+                "num_total_submissions": 1,
+                "public": true,
+                "user_name": "waihoh"
             }
         }
     ],
-    "updated": 1622736454.6869297
+    "updated": 1622736837.4586227
 }
