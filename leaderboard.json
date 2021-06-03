@@ -138,80 +138,7 @@
             },
             "submission": {
                 "created": 1622581933,
-                "description": "{sample_submission} (DeepLearning.AI) https://www.deeplearning.ai/",
-                "num_period_submissions": 1,
-                "num_total_submissions": 2,
-                "public": true,
-                "user_name": "DeepLearning.AI"
-            }
-        },
-        {
-            "bundle": {
-                "args": "run evaluate.py:0x654bf5fd29b9453580562304e3f09ea9 test:0x5d034887a6e24cfd9849790447946ef2 predictions.json:0x7e6392d7e524439da59d62df89cb0c88 \"python evaluate.py predictions.json test\" --request-cpus 1 --request-docker-image jupyter/tensorflow-notebook --request-memory 2g",
-                "bundle_type": "run",
-                "command": "python evaluate.py predictions.json test",
-                "data_hash": null,
-                "dependencies": [
-                    {
-                        "child_path": "evaluate.py",
-                        "child_uuid": "0x7384323787cb4fc7ac2db6ca93213b62",
-                        "parent_name": "evaluate.py",
-                        "parent_path": "",
-                        "parent_uuid": "0x654bf5fd29b9453580562304e3f09ea9"
-                    },
-                    {
-                        "child_path": "test",
-                        "child_uuid": "0x7384323787cb4fc7ac2db6ca93213b62",
-                        "parent_name": "test",
-                        "parent_path": "",
-                        "parent_uuid": "0x5d034887a6e24cfd9849790447946ef2"
-                    },
-                    {
-                        "child_path": "predictions.json",
-                        "child_uuid": "0x7384323787cb4fc7ac2db6ca93213b62",
-                        "parent_name": "DeepLearning.AI-sample_submission-predict",
-                        "parent_path": "",
-                        "parent_uuid": "0x7e6392d7e524439da59d62df89cb0c88"
-                    }
-                ],
-                "frozen": null,
-                "id": "0x7384323787cb4fc7ac2db6ca93213b62",
-                "is_anonymous": false,
-                "metadata": {
-                    "actions": [],
-                    "allow_failed_dependencies": false,
-                    "created": 1622736801,
-                    "description": "{\"submit_id\": \"0x42adff3aab314ae79b7216c1d91f8875\", \"submitter_id\": \"0xc4d5327b6ec3447f956a334fde285eaa\", \"predict_id\": \"0x7e6392d7e524439da59d62df89cb0c88\"}",
-                    "exclude_patterns": [],
-                    "name": "DeepLearning.AI-sample_submission-results",
-                    "request_cpus": 1,
-                    "request_disk": "",
-                    "request_docker_image": "jupyter/tensorflow-notebook",
-                    "request_gpus": 0,
-                    "request_memory": "2g",
-                    "request_network": false,
-                    "request_priority": 0,
-                    "request_queue": "",
-                    "request_time": "",
-                    "tags": [
-                        "eval-roman"
-                    ]
-                },
-                "owner": {
-                    "id": "0xc4d5327b6ec3447f956a334fde285eaa",
-                    "type": "users"
-                },
-                "permission": 2,
-                "permission_spec": "all",
-                "state": "created",
-                "uuid": "0x7384323787cb4fc7ac2db6ca93213b62"
-            },
-            "scores": {
-                "accuracy": null
-            },
-            "submission": {
-                "created": 1622595585,
-                "description": "",
+                "description": "sample_submission (DeepLearning.AI) https://www.deeplearning.ai/",
                 "num_period_submissions": 1,
                 "num_total_submissions": 2,
                 "public": true,
@@ -223,7 +150,7 @@
                 "args": "run evaluate.py:0x654bf5fd29b9453580562304e3f09ea9 test:0x5d034887a6e24cfd9849790447946ef2 predictions.json:0x670f6aae02d94af193303da1208beee8 \"python evaluate.py predictions.json test\" --request-cpus 1 --request-docker-image jupyter/tensorflow-notebook --request-memory 2g",
                 "bundle_type": "run",
                 "command": "python evaluate.py predictions.json test",
-                "data_hash": null,
+                "data_hash": "0xbed1f433f46d54408014590148325fa8bb33ca30",
                 "dependencies": [
                     {
                         "child_path": "evaluate.py",
@@ -254,9 +181,14 @@
                     "actions": [],
                     "allow_failed_dependencies": false,
                     "created": 1622736803,
+                    "data_size": 9018,
                     "description": "{\"submit_id\": \"0xf93b1fe2c6e24de1bbbdec2d40cdb205\", \"submitter_id\": \"0x5b81065f425a43afbb1236e683a97fb5\", \"predict_id\": \"0x670f6aae02d94af193303da1208beee8\"}",
+                    "docker_image": "jupyter/tensorflow-notebook@sha256:0b066cc22fa1a02d3359e51276236f9b5035cd8f50bbee2e894d689343500d28",
                     "exclude_patterns": [],
+                    "exitcode": 0,
+                    "last_updated": 1622737063,
                     "name": "billchenxi-predictions.json-results",
+                    "remote": "767b3995db77-f551c00ac93440da8bd8e28894f21bf2",
                     "request_cpus": 1,
                     "request_disk": "",
                     "request_docker_image": "jupyter/tensorflow-notebook",
@@ -266,9 +198,14 @@
                     "request_priority": 0,
                     "request_queue": "",
                     "request_time": "",
+                    "run_status": "Finished",
+                    "started": 1622737014,
                     "tags": [
                         "eval-roman"
-                    ]
+                    ],
+                    "time": 3.957418,
+                    "time_system": 0.0,
+                    "time_user": 0.0
                 },
                 "owner": {
                     "id": "0xc4d5327b6ec3447f956a334fde285eaa",
@@ -276,11 +213,11 @@
                 },
                 "permission": 2,
                 "permission_spec": "all",
-                "state": "created",
+                "state": "ready",
                 "uuid": "0x1b9d5a4c4abf499ea33c5e0602456e25"
             },
             "scores": {
-                "accuracy": null
+                "accuracy": 0.5217013888888888
             },
             "submission": {
                 "created": 1622673588,
@@ -293,10 +230,182 @@
         },
         {
             "bundle": {
+                "args": "run evaluate.py:0x654bf5fd29b9453580562304e3f09ea9 test:0x5d034887a6e24cfd9849790447946ef2 predictions.json:0x7e6392d7e524439da59d62df89cb0c88 \"python evaluate.py predictions.json test\" --request-cpus 1 --request-docker-image jupyter/tensorflow-notebook --request-memory 2g",
+                "bundle_type": "run",
+                "command": "python evaluate.py predictions.json test",
+                "data_hash": "0x1e3c79c5ec6deda889e227a2f69a2959623a12b8",
+                "dependencies": [
+                    {
+                        "child_path": "evaluate.py",
+                        "child_uuid": "0x7384323787cb4fc7ac2db6ca93213b62",
+                        "parent_name": "evaluate.py",
+                        "parent_path": "",
+                        "parent_uuid": "0x654bf5fd29b9453580562304e3f09ea9"
+                    },
+                    {
+                        "child_path": "test",
+                        "child_uuid": "0x7384323787cb4fc7ac2db6ca93213b62",
+                        "parent_name": "test",
+                        "parent_path": "",
+                        "parent_uuid": "0x5d034887a6e24cfd9849790447946ef2"
+                    },
+                    {
+                        "child_path": "predictions.json",
+                        "child_uuid": "0x7384323787cb4fc7ac2db6ca93213b62",
+                        "parent_name": "DeepLearning.AI-sample_submission-predict",
+                        "parent_path": "",
+                        "parent_uuid": "0x7e6392d7e524439da59d62df89cb0c88"
+                    }
+                ],
+                "frozen": null,
+                "id": "0x7384323787cb4fc7ac2db6ca93213b62",
+                "is_anonymous": false,
+                "metadata": {
+                    "actions": [],
+                    "allow_failed_dependencies": false,
+                    "created": 1622736801,
+                    "data_size": 9018,
+                    "description": "{\"submit_id\": \"0x42adff3aab314ae79b7216c1d91f8875\", \"submitter_id\": \"0xc4d5327b6ec3447f956a334fde285eaa\", \"predict_id\": \"0x7e6392d7e524439da59d62df89cb0c88\"}",
+                    "docker_image": "jupyter/tensorflow-notebook@sha256:0b066cc22fa1a02d3359e51276236f9b5035cd8f50bbee2e894d689343500d28",
+                    "exclude_patterns": [],
+                    "exitcode": 0,
+                    "last_updated": 1622736942,
+                    "name": "DeepLearning.AI-sample_submission-results",
+                    "remote": "767b3995db77-f551c00ac93440da8bd8e28894f21bf2",
+                    "request_cpus": 1,
+                    "request_disk": "",
+                    "request_docker_image": "jupyter/tensorflow-notebook",
+                    "request_gpus": 0,
+                    "request_memory": "2g",
+                    "request_network": false,
+                    "request_priority": 0,
+                    "request_queue": "",
+                    "request_time": "",
+                    "run_status": "Finished",
+                    "started": 1622736892,
+                    "tags": [
+                        "eval-roman"
+                    ],
+                    "time": 3.936493,
+                    "time_system": 0.0,
+                    "time_user": 0.0
+                },
+                "owner": {
+                    "id": "0xc4d5327b6ec3447f956a334fde285eaa",
+                    "type": "users"
+                },
+                "permission": 2,
+                "permission_spec": "all",
+                "state": "ready",
+                "uuid": "0x7384323787cb4fc7ac2db6ca93213b62"
+            },
+            "scores": {
+                "accuracy": 0.4600694444444444
+            },
+            "submission": {
+                "created": 1622595585,
+                "description": "",
+                "num_period_submissions": 1,
+                "num_total_submissions": 2,
+                "public": true,
+                "user_name": "DeepLearning.AI"
+            }
+        },
+        {
+            "bundle": {
+                "args": "run evaluate.py:0x654bf5fd29b9453580562304e3f09ea9 test:0x5d034887a6e24cfd9849790447946ef2 predictions.json:0x6bf366626f0746b487f75d7c71e27518 \"python evaluate.py predictions.json test\" --request-cpus 1 --request-docker-image jupyter/tensorflow-notebook --request-memory 2g",
+                "bundle_type": "run",
+                "command": "python evaluate.py predictions.json test",
+                "data_hash": "0x66cf21e0a1754266f351718c16c6ce7334045788",
+                "dependencies": [
+                    {
+                        "child_path": "evaluate.py",
+                        "child_uuid": "0x82a9b28e703a414c85ddd3d45014ca8a",
+                        "parent_name": "evaluate.py",
+                        "parent_path": "",
+                        "parent_uuid": "0x654bf5fd29b9453580562304e3f09ea9"
+                    },
+                    {
+                        "child_path": "test",
+                        "child_uuid": "0x82a9b28e703a414c85ddd3d45014ca8a",
+                        "parent_name": "test",
+                        "parent_path": "",
+                        "parent_uuid": "0x5d034887a6e24cfd9849790447946ef2"
+                    },
+                    {
+                        "child_path": "predictions.json",
+                        "child_uuid": "0x82a9b28e703a414c85ddd3d45014ca8a",
+                        "parent_name": "wchung-sample_submission-predict",
+                        "parent_path": "",
+                        "parent_uuid": "0x6bf366626f0746b487f75d7c71e27518"
+                    }
+                ],
+                "frozen": null,
+                "id": "0x82a9b28e703a414c85ddd3d45014ca8a",
+                "is_anonymous": false,
+                "metadata": {
+                    "actions": [],
+                    "allow_failed_dependencies": false,
+                    "cpu_usage": 0.0,
+                    "created": 1622740022,
+                    "data_size": 9018,
+                    "description": "{\"submit_id\": \"0x26c46a5583e145608888ddabf6a4f396\", \"submitter_id\": \"0x289ba261e58542bdbee9ac852b3bd3ff\", \"predict_id\": \"0x6bf366626f0746b487f75d7c71e27518\"}",
+                    "docker_image": "jupyter/tensorflow-notebook@sha256:0b066cc22fa1a02d3359e51276236f9b5035cd8f50bbee2e894d689343500d28",
+                    "exclude_patterns": [],
+                    "exitcode": 0,
+                    "last_updated": 1622740223,
+                    "memory_usage": 0.0,
+                    "name": "wchung-sample_submission-results",
+                    "remote": "be3527570551-77303586f24b4a99b2c0673cb797cdab",
+                    "request_cpus": 1,
+                    "request_disk": "",
+                    "request_docker_image": "jupyter/tensorflow-notebook",
+                    "request_gpus": 0,
+                    "request_memory": "2g",
+                    "request_network": false,
+                    "request_priority": 0,
+                    "request_queue": "",
+                    "request_time": "",
+                    "run_status": "Finished",
+                    "started": 1622740117,
+                    "tags": [
+                        "eval-roman"
+                    ],
+                    "time": 3.899757,
+                    "time_cleaning_up": 9.178987503051758,
+                    "time_preparing": 66.91246223449707,
+                    "time_running": 11.172107696533203,
+                    "time_system": 0.0,
+                    "time_uploading_results": 18.33455204963684,
+                    "time_user": 0.0
+                },
+                "owner": {
+                    "id": "0xc4d5327b6ec3447f956a334fde285eaa",
+                    "type": "users"
+                },
+                "permission": 2,
+                "permission_spec": "all",
+                "state": "ready",
+                "uuid": "0x82a9b28e703a414c85ddd3d45014ca8a"
+            },
+            "scores": {
+                "accuracy": 0.4270833333333333
+            },
+            "submission": {
+                "created": 1622739684,
+                "description": "sample_submission_wchung https://worksheets.codalab.org/bundles/0x26c46a5583e145608888ddabf6a4f396",
+                "num_period_submissions": 1,
+                "num_total_submissions": 1,
+                "public": true,
+                "user_name": "wchung"
+            }
+        },
+        {
+            "bundle": {
                 "args": "run evaluate.py:0x654bf5fd29b9453580562304e3f09ea9 test:0x5d034887a6e24cfd9849790447946ef2 predictions.json:0xa803236022be45249070ce075c9747f2 \"python evaluate.py predictions.json test\" --request-cpus 1 --request-docker-image jupyter/tensorflow-notebook --request-memory 2g",
                 "bundle_type": "run",
                 "command": "python evaluate.py predictions.json test",
-                "data_hash": null,
+                "data_hash": "0x3f96f1e249332053e75facb0f5595dc04df780a7",
                 "dependencies": [
                     {
                         "child_path": "evaluate.py",
@@ -326,10 +435,17 @@
                 "metadata": {
                     "actions": [],
                     "allow_failed_dependencies": false,
+                    "cpu_usage": 0.0,
                     "created": 1622736805,
+                    "data_size": 9018,
                     "description": "{\"submit_id\": \"0x7a404aa145824c7d9ad28eb43ba04cb5\", \"submitter_id\": \"0xd0d22faf66f141f689780b4ab5c3e79f\", \"predict_id\": \"0xa803236022be45249070ce075c9747f2\"}",
+                    "docker_image": "jupyter/tensorflow-notebook@sha256:0b066cc22fa1a02d3359e51276236f9b5035cd8f50bbee2e894d689343500d28",
                     "exclude_patterns": [],
+                    "exitcode": 0,
+                    "last_updated": 1622737086,
+                    "memory_usage": 0.0,
                     "name": "waihoh-sample_submission-results",
+                    "remote": "46836d028150-48de20f2938b45fea409660706b7b568",
                     "request_cpus": 1,
                     "request_disk": "",
                     "request_docker_image": "jupyter/tensorflow-notebook",
@@ -339,9 +455,18 @@
                     "request_priority": 0,
                     "request_queue": "",
                     "request_time": "",
+                    "run_status": "Finished",
+                    "started": 1622737037,
                     "tags": [
                         "eval-roman"
-                    ]
+                    ],
+                    "time": 4.5208,
+                    "time_cleaning_up": 8.14071798324585,
+                    "time_preparing": 13.838247060775757,
+                    "time_running": 10.124799013137817,
+                    "time_system": 0.0,
+                    "time_uploading_results": 16.25715661048889,
+                    "time_user": 0.0
                 },
                 "owner": {
                     "id": "0xc4d5327b6ec3447f956a334fde285eaa",
@@ -349,11 +474,11 @@
                 },
                 "permission": 2,
                 "permission_spec": "all",
-                "state": "created",
+                "state": "ready",
                 "uuid": "0x2de020f638b340c7b1a6496b6cd12dc5"
             },
             "scores": {
-                "accuracy": null
+                "accuracy": 0.3758680555555556
             },
             "submission": {
                 "created": 1622734929,
@@ -365,5 +490,5 @@
             }
         }
     ],
-    "updated": 1622736837.4586227
+    "updated": 1622742177.775721
 }
