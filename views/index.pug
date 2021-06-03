@@ -48,38 +48,37 @@ block content
                 h2 What is Data-Centric ML?
               p 
                 span
-                | Here at Landing AI we heavily utilize data-centric approaches to improve the performance of our machine learning models. These include techniques such as fixing incorrect labels or ambiguous labels, adding data for side cases tuning , adding data augmentation techniques, etc. We have seen this data centric approach used widely across AI problems in industry yet scarcely examined in academics, so we created this competition to compare and improve data-centric approaches to improving machine learning model performance.
+                | The Data-centric AI Competition aims to elevate data-centric approaches to improving machine learning model performance. In most machine learning competitions, a user is given a fixed set of data and asked to improve on the model to produce quality predictions. However in industry, the time machine learning practitioners spend improving data vastly outweighs the time spent improving models. The Data-centric AI Competition inverts this format and instead asks the user to improve on the data given a fixed model. We will provide you with a dataset to which you can apply data-centric techniques such as fixing incorrect labels, adding data for side case tuning, apply data augmentation techniques, etc. You will then submit your altered dataset for evaluation. The prize? Fame, glory, and publicization of results. Good luck!
               p
               .infoHeadline
                 h2 Getting Started
               p
                 | Here's a few resources to help you get started with the data-centric competition
               p 
-                | Download a copy of the dataset and labels
+                | Watch this introduction video to get an overview of the competition and submission instructions
                 ul.list-unstyled
                   li
-                    a.btn.actionBtn.inverseBtn(href="https://worksheets.codalab.org/bundles/0x673a2d87f692439a9ab6b4603e9fcc35", download)
-                      | Dataset
-                  li
-                    a.btn.actionBtn.inverseBtn(href="https://worksheets.codalab.org/bundles/0xdd93233952fc4997a07638776e1cd072", download)
-                      | Labels
-                    
-              p To evaluate your dataset we have also made available the prediction/evaluation script we will use for official evaluation
+                    a.btn.actionBtn.inverseBtn(href="https://drive.google.com/file/d/1qSTnHbPvqb7nyIumCMi_Ty9DPsgRXIv4/view?usp=sharing")
+                      | Introduction Video   
+              p 
+                | Download a copy of the dataset
                 ul.list-unstyled
                   li
-                    a.btn.actionBtn.inverseBtn(href="https://worksheets.codalab.org/bundles/0x6bdf9e3299904351ad6eecc9c7f9567d/contents/blob/", download)
+                    a.btn.actionBtn.inverseBtn(href="https://worksheets.codalab.org/bundles/0x53bacd968975443ca88a38b18f42eb54", download)
+                      | Dataset                   
+              p To evaluate your dataset we have also made available the training script we will use for official evaluation
+                ul.list-unstyled
+                  li
+                    a.btn.actionBtn.inverseBtn(href="https://worksheets.codalab.org/bundles/0x48b636fd38fc4f1095b89558a3fb57e1/", download)
                       | Prediction Script 
               p Once you built a dataset that you like, you can submit it to get official scores on dev and hidden test set.
               a.btn.actionBtn.inverseBtn(href="https://worksheets.codalab.org/worksheets/0x7a8721f11e61436e93ac8f76da83f0e6/")
                 | Submission Tutorial
               .infoHeadline
                 h2 Have Questions?
-              p 
-                | Ask us questions at 
-                a(href="mailto:dillon@landing.ai") dillon@landing.ai
-                |  and 
-                a(href="mailto:lynn.he@deeplearning.ai") lynn.he@deeplearning.ai
-                | .
+              p Join us on Discourse to ask us questions and connect with other competitors!
+              a.btn.actionBtn.inverseBtn(href="http://bit.ly/dlai-competition")
+                | Discourse
             .infoSubheadline
               include includes/github
         .col-md-7
